@@ -25,13 +25,18 @@
 
 
 <script setup>
-import {computed, reactive} from "vue";
+import {computed, reactive, watch} from "vue";
 
 const appTitle = 'My Ok Counter App'
 
 const counterData = reactive({
     count: 0,
     title: 'My Counter'
+})
+
+watch(() => counterData.count, (newCount, oldCount) => {
+    if (newCount === 20) alert('Way to go! You made it to 20!!')
+    if (oldCount === 20) alert('Stop! You just passed 20!!')
 })
 
 const oddOrEven = computed(() => {
@@ -50,9 +55,19 @@ const decreaseCounter = amount => {counterData.count -= amount}
 <!--
 <script>
 export default {
+    data() {
+        return {
+            count: 0
+        }
+    },
     computed: {
         myComputedProperty() {
             return 'my result'
+        }
+    },
+    watch: {
+        count(newCount, oldCount) {
+            if (newCount == 20) alert('asdfasd')
         }
     }
 }
