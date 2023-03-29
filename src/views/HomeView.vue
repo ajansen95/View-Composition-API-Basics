@@ -75,7 +75,7 @@
     })
 
 /*
-    counter
+    directives
  */
 
     const vAutofocus = { //v-autofocus
