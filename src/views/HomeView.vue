@@ -26,13 +26,7 @@
 
 <script setup>
 import {
-    computed,
-    onActivated,
-    onBeforeMount,
-    onBeforeUnmount,
-    onDeactivated,
-    onMounted,
-    onUnmounted,
+    computed, onBeforeUpdate, onUpdated,
     reactive,
     watch
 } from "vue";
@@ -60,23 +54,11 @@ function increaseCounter(amount, e) {
 }
 const decreaseCounter = amount => {counterData.count -= amount}
 
-onBeforeMount(() => {
-    console.log('onBeforeMount')
+onBeforeUpdate(() => {
+    console.log('onBeforeUpdate()')
 })
-onMounted(() => {
-    console.log('onMount')
-})
-onBeforeUnmount(() => {
-    console.log('onBeforeUnmount')
-})
-onUnmounted(() => {
-    console.log('onUnmounted')
-})
-onActivated(() => {
-    console.log('onActivated')
-})
-onDeactivated(() => {
-    console.log('onDeactivated')
+onUpdated(() => {
+    console.log('onUpdated()')
 })
 
 </script>
