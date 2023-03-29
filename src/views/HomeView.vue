@@ -6,9 +6,11 @@
         <h3>{{counterData.title}}:</h3>
 
         <div>
-            <button @click="decreaseCounter" class="btn">-</button>
+            <button @click="decreaseCounter(2)" class="btn">--</button>
+            <button @click="decreaseCounter(1)" class="btn">-</button>
             <span class="counter">{{counterData.count}}</span>
-            <button @click="increaseCounter" class="btn">+</button>
+            <button @click="increaseCounter(1, $event)" class="btn">+</button>
+            <button @click="increaseCounter(2, $event)" class="btn">++</button>
         </div>
 
         <div class="edit">
@@ -30,8 +32,11 @@ const counterData = reactive({
     title: 'My Counter'
 })
 
-function increaseCounter() {counterData.count++}
-const decreaseCounter = () => {counterData.count--}
+function increaseCounter(amount, e) {
+    console.log(e)
+    counterData.count += amount
+}
+const decreaseCounter = amount => {counterData.count -= amount}
 </script>
 
 
