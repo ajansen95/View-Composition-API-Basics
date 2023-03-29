@@ -34,6 +34,7 @@
         reactive,
         watch
     } from "vue";
+    import {vAutofocus} from "@/directives/vAutofocus";
 
 /*
     app title
@@ -74,15 +75,7 @@
         console.log('Do stuff related to Counter')
     })
 
-/*
-    directives
- */
 
-    const vAutofocus = { //v-autofocus
-        mounted: (el) => {
-            el.focus()
-        }
-    }
 
 </script>
 
