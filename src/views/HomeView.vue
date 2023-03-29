@@ -17,7 +17,7 @@
 
         <div class="edit">
             <h4>Edit counter title:</h4>
-            <input v-model="counterData.title" type="text">
+            <input v-model="counterData.title" type="text" v-autofocus>
         </div>
 
     </div>
@@ -74,6 +74,16 @@
         console.log('Do stuff related to Counter')
     })
 
+/*
+    counter
+ */
+
+    const vAutofocus = { //v-autofocus
+        mounted: (el) => {
+            el.focus()
+        }
+    }
+
 </script>
 
 
@@ -92,7 +102,7 @@ export default {
     },
     watch: {
         count(newCount, oldCount) {
-            if (newCount == 20) alert('asdfasd')
+            if (newCount === 20) alert('asdfasd')
         }
     },
     mounted() {
@@ -100,6 +110,13 @@ export default {
     },
     unmounted() {
         console.log('unmounted')
+    },
+    directives: {
+        autofocus: {
+            mounted(el) {
+                el.focus()
+            }
+        }
     }
 }
 </script>
