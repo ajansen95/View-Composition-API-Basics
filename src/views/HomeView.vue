@@ -25,41 +25,54 @@
 
 
 <script setup>
-import {
-    computed, onBeforeUpdate, onUpdated,
-    reactive,
-    watch
-} from "vue";
+/*
+    imports
+ */
 
-const appTitle = 'My Ok Counter App'
+    import {
+        computed, onMounted,
+        reactive,
+        watch
+    } from "vue";
 
-const counterData = reactive({
-    count: 0,
-    title: 'My Counter'
-})
+/*
+    app title
+ */
 
-watch(() => counterData.count, (newCount, oldCount) => {
-    if (newCount === 20) alert('Way to go! You made it to 20!!')
-    if (oldCount === 20) alert('Stop! You just passed 20!!')
-})
+    const appTitle = 'My Ok Counter App'
 
-const oddOrEven = computed(() => {
-    if (counterData.count % 2 === 0) return 'even'
-    else return 'odd'
-})
+    onMounted(() => {
+        console.log('Do stuff related to App Title')
+    })
 
-function increaseCounter(amount, e) {
-    console.log(e)
-    counterData.count += amount
-}
-const decreaseCounter = amount => {counterData.count -= amount}
+/*
+    counter
+ */
 
-onBeforeUpdate(() => {
-    console.log('onBeforeUpdate()')
-})
-onUpdated(() => {
-    console.log('onUpdated()')
-})
+    const counterData = reactive({
+        count: 0,
+        title: 'My Counter'
+    })
+
+    watch(() => counterData.count, (newCount, oldCount) => {
+        if (newCount === 20) alert('Way to go! You made it to 20!!')
+        if (oldCount === 20) alert('Stop! You just passed 20!!')
+    })
+
+    const oddOrEven = computed(() => {
+        if (counterData.count % 2 === 0) return 'even'
+        else return 'odd'
+    })
+
+    function increaseCounter(amount, e) {
+        console.log(e)
+        counterData.count += amount
+    }
+    const decreaseCounter = amount => {counterData.count -= amount}
+
+    onMounted(() => {
+        console.log('Do stuff related to Counter')
+    })
 
 </script>
 
