@@ -30,7 +30,7 @@
  */
 
 import {
-    computed, onMounted,
+    computed, nextTick, onMounted,
     reactive, ref,
     watch
 } from "vue";
@@ -67,9 +67,11 @@ import {
         else return 'odd'
     })
 
-    function increaseCounter(amount, e) {
+    async function increaseCounter(amount, e) {
         console.log(e)
         counterData.count += amount
+        await nextTick()
+        console.log('do something when counter has updated in the dom')
     }
     const decreaseCounter = amount => {counterData.count -= amount}
 
