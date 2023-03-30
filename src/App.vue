@@ -1,6 +1,7 @@
 <template>
   <nav>
       <RouterLink to="/">Home</RouterLink>
+      <RouterLink to="/modals">Modals</RouterLink>
       <RouterLink to="/posts">Posts</RouterLink>
   </nav>
 
@@ -38,3 +39,5 @@ nav a:first-of-type {
   border: 0;
 }
 </style>
+<script setup>
+</script>
